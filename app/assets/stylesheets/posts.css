@@ -1,0 +1,11 @@
+.photo-post img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.video-post video, .audio-post audio {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}

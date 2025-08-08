@@ -1,0 +1,47 @@
+
+<div class="flex flex-col items-center min-h-screen bg-black py-8">
+  <h1 class="text-4xl font-extrabold text-white mb-8 tracking-tight">TikTok Feed</h1>
+  <div class="w-full max-w-lg space-y-10">
+    <% @posts.each do |post| %>
+      <div class="bg-gray-900 rounded-3xl shadow-2xl border-4 border-fuchsia-700 overflow-hidden">
+        <div class="flex items-center justify-between px-6 pt-6">
+          <span class="font-bold text-fuchsia-400 text-lg"><%= post.user.email_address %></span>
+          <span class="text-xs text-gray-400"><%= post.created_at.strftime('%b %d, %Y %H:%M') %></span>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <h2 class="text-2xl font-bold text-white mb-2"><%= post.title %></h2>
+          <p class="text-gray-300 mb-4"><%= post.body %></p>
+          <% if post.media_file.attached? %>
+            <div class="flex justify-center mb-4">
+              <% if post.photo_post? %>
+                <%= render partial: "posts/photo_post", locals: { post: post } %>
+              <% elsif post.video_post? %>
+                <%= render partial: "posts/video_post", locals: { post: post } %>
+              <% elsif post.audio_post? %>
+                <%= render partial: "posts/audio_post", locals: { post: post } %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="bg-gray-800 px-6 py-4 rounded-b-3xl">
+          <h3 class="text-lg font-bold text-fuchsia-400 mb-2">Comments</h3>
+          <div class="max-h-40 overflow-y-auto  mb-2">
+            <%= turbo_stream_from post, "comments" %>
+            <div id="comments" class='space-y-2'>
+              <% post.comments.order(created_at: :desc).each do |comment| %>
+                <%=render partial: 'comments/comment', locals: {comment: comment} %>
+              <% end %>
+            </div>
+          </div>
+          <%= form_with model:[post,Comment.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
+            <div class="flex items-center">
+              <%= form.text_field :body, placeholder: "Add a comment...", class: "flex-1 px-4 py-2 rounded-full bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+              <%= form.submit "Comment", class: "ml-2 px-4 py-2 rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

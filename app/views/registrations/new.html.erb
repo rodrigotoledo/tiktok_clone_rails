@@ -1,0 +1,27 @@
+<div class="max-w-md mx-auto mt-10 bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
+  <h1 class="text-3xl font-bold text-center text-white mb-6">Sign Up</h1>
+  <%= form_with model: @user, url: sign_up_path, local: true do |form| %>
+    <div class="mb-4">
+      <%= form.label :email_address, class: "block text-white mb-2" %>
+      <%= form.email_field :email_address, class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :password, class: "block text-white mb-2" %>
+      <%= form.password_field :password, class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :password_confirmation, class: "block text-white mb-2" %>
+      <%= form.password_field :password_confirmation, class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+    </div>
+    <div>
+      <%= form.submit "Sign Up", class: "w-full py-2 rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition" %>
+    </div>
+  <% end %>
+  <% if @user.errors.any? %>
+    <ul class="mt-4 text-red-400">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
