@@ -41,7 +41,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "factory_bot_rails"
+  gem "factory_bot_rails", git: 'https://github.com/rodrigotoledo/factory_bot_rails.git', branch: 'fix-authentication-generator'
   gem "dotenv-rails"
   gem "faker"
   gem "guard-rspec", require: false
@@ -49,9 +49,7 @@ group :development, :test do
   gem "pry"
   gem "rails-controller-testing"
   gem "rspec_junit_formatter"
-  gem "rspec-rails",
-      git: "https://github.com/rodrigotoledo/rspec-rails.git",
-      branch: "fix-authentication-generator"
+  gem "rspec-rails"
   gem "simplecov", require: false
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   # Security

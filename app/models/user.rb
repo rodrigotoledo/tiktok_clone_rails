@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+  has_one :account
 end

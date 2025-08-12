@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_08_155303) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_09_092043) do
+  create_table "accounts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.json "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +57,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_08_155303) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "followings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "follower_id"
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_followings_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -76,10 +93,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_08_155303) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "accounts", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "followings", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "sessions", "users"
 end

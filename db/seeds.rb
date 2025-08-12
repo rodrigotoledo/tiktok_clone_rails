@@ -22,7 +22,7 @@ MEDIA_FILES = [
 users = User.all.to_a
 
 users.each do |user|
-  5.times do |i|
+  10.times do |i|
     post = user.posts.build(
       title: "Post #{i + 1} - #{Faker::Lorem.sentence}",
       body: Faker::Lorem.paragraph(sentence_count: 3)

@@ -1,16 +1,11 @@
 GIT
-  remote: https://github.com/rodrigotoledo/rspec-rails.git
-  revision: dc3a8e91d4785c7ad28e35bdb397508856f49ca1
+  remote: https://github.com/rodrigotoledo/factory_bot_rails.git
+  revision: 78075a63f676ebf758093d7045a1cb3a7cddaa3b
   branch: fix-authentication-generator
   specs:
-    rspec-rails (8.1.0.pre)
-      actionpack (>= 7.2)
-      activesupport (>= 7.2)
-      railties (>= 7.2)
-      rspec-core (~> 3.13)
-      rspec-expectations (~> 3.13)
-      rspec-mocks (~> 3.13)
-      rspec-support (~> 3.13)
+    factory_bot_rails (6.5.0)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -128,9 +123,6 @@ GEM
       tzinfo
     factory_bot (6.5.4)
       activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.0)
-      factory_bot (~> 6.5)
-      railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
     ffi (1.17.2-aarch64-linux-gnu)
@@ -140,7 +132,8 @@ GEM
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
-    formatador (1.1.1)
+    formatador (1.2.0)
+      reline
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -177,9 +170,9 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jbuilder (2.13.0)
-      actionview (>= 5.0.0)
-      activesupport (>= 5.0.0)
+    jbuilder (2.14.0)
+      actionview (>= 7.0.0)
+      activesupport (>= 7.0.0)
     json (2.13.2)
     kamal (2.7.0)
       activesupport (>= 7.0)
@@ -330,7 +323,7 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    regexp_parser (2.11.0)
+    regexp_parser (2.11.1)
     reline (0.6.2)
       io-console (~> 0.5)
     rspec (3.13.1)
@@ -346,6 +339,14 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
+    rspec-rails (8.0.1)
+      actionpack (>= 7.2)
+      activesupport (>= 7.2)
+      railties (>= 7.2)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
     rspec-support (3.13.4)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
@@ -477,7 +478,7 @@ DEPENDENCIES
   database_cleaner-active_record
   dotenv-rails
   email_validator
-  factory_bot_rails
+  factory_bot_rails!
   faker
   guard-rspec
   hotwire_native_rails (~> 0.4.4)
@@ -493,7 +494,7 @@ DEPENDENCIES
   rails-controller-testing
   ransack (~> 4.3)
   rspec-json_expectations
-  rspec-rails!
+  rspec-rails
   rspec_junit_formatter
   rubocop-rails-omakase
   shoulda-matchers
