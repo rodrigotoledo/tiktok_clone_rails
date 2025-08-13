@@ -74,4 +74,8 @@ Rails.application.configure do
   config.solid_queue.connects_to = { database: { writing: :queue } }
   config.cache_store = :solid_cache_store
   config.solid_cache.database = :cache
+
+  # Use letter_opener gem to preview emails in the browser instead of sending them.
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
 end
