@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # in the Native app, define absolute paths
-# redirect these absolute paths to the correct controller actions based on context like 
+# redirect these absolute paths to the correct controller actions based on context like
 # current_user, current_organization, etc.
 # redirect_to user_path(current_user) if current_user&.present?
 class HotwireNative::TabsController < ActionController::Base

@@ -15,20 +15,20 @@ module HotwireNativeHelper
       @page_title,
       Rails.application.class.module_parent.name
     ]
-    
+
     title_options.compact.first
   end
 
   # forbid zooming on mobile devices
   def viewport_meta_tag
-    content = ['width=device-width,initial-scale=1']
-    content << 'maximum-scale=1, user-scalable=0' if turbo_native_app? || browser.device.mobile?
-    tag.meta(name: 'viewport', content: content.join(','))
+    content = [ "width=device-width,initial-scale=1" ]
+    content << "maximum-scale=1, user-scalable=0" if turbo_native_app? || browser.device.mobile?
+    tag.meta(name: "viewport", content: content.join(","))
   end
 
   # set on <html> tag
   def platform_identifier
-    'data-hotwire-native' if turbo_native_app?
+    "data-hotwire-native" if turbo_native_app?
   end
 
   # link_to 'Next', next_path, data: { turbo_action: replace_if_native }
@@ -36,14 +36,14 @@ module HotwireNativeHelper
   # caution: if you open a modal on top of the root page, and replace, it will replace the root page.
   # projects#show will replace projects#index => BAD
   def replace_if_native
-    return 'replace' if turbo_native_app?
+    return "replace" if turbo_native_app?
 
-    'advance'
+    "advance"
   end
 
   # override link_to to not open internal links in in-app browser on native app
   def link_to(name = nil, options = nil, html_options = {}, &)
-    html_options[:target] = '' if turbo_native_app? && internal_url?(url_for(options))
+    html_options[:target] = "" if turbo_native_app? && internal_url?(url_for(options))
     super
   end
 
@@ -55,8 +55,8 @@ module HotwireNativeHelper
     # GOOD: f.submit t('.save')
     def submit(value = nil, options = {})
       options[:data] ||= {}
-      options['data-bridge--form-target'] = 'submit'
-      options[:class] = [options[:class], 'hotwire-native:hidden'].compact
+      options["data-bridge--form-target"] = "submit"
+      options[:class] = [ options[:class], "hotwire-native:hidden" ].compact
       super
     end
   end
@@ -77,8 +77,8 @@ module HotwireNativeHelper
 
   def bridge_form_data
     {
-      controller: 'bridge--form',
-      action: 'turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd'
+      controller: "bridge--form",
+      action: "turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd"
     }
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :hotwire_native do
   namespace :v1 do
     namespace :android do

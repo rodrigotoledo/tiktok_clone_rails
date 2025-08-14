@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -41,7 +43,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "factory_bot_rails", git: 'https://github.com/rodrigotoledo/factory_bot_rails.git', branch: 'fix-authentication-generator'
+  gem "factory_bot_rails", git: "https://github.com/rodrigotoledo/factory_bot_rails.git", branch: "fix-authentication-generator"
   gem "dotenv-rails"
   gem "faker"
   gem "guard-rspec", require: false

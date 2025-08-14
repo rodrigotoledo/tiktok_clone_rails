@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HotwireNative::V1::Ios::PathConfigurationsController < ActionController::Base
   def show
     render json:
@@ -51,7 +53,7 @@ class HotwireNative::V1::Ios::PathConfigurationsController < ActionController::B
             "properties": {
               "presentation": "replace_root"
             }
-          },
+          }
         ]
       }
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
@@ -6,26 +8,26 @@ class Post < ApplicationRecord
   validate :acceptable_media_file
 
   def photo_post?
-    media_file.attached? && media_file.content_type.start_with?('image/')
+    media_file.attached? && media_file.content_type.start_with?("image/")
   end
 
   def video_post?
-    media_file.attached? && media_file.content_type.start_with?('video/')
+    media_file.attached? && media_file.content_type.start_with?("video/")
   end
 
   def audio_post?
-    media_file.attached? && media_file.content_type.start_with?('audio/')
+    media_file.attached? && media_file.content_type.start_with?("audio/")
   end
 
   def media_type
     return unless media_file.attached?
 
-    if media_file.content_type.start_with?('audio/')
-      'audio'
-    elsif media_file.content_type.start_with?('video/')
-      'video'
-    elsif media_file.content_type.start_with?('image/')
-      'image'
+    if media_file.content_type.start_with?("audio/")
+      "audio"
+    elsif media_file.content_type.start_with?("video/")
+      "video"
+    elsif media_file.content_type.start_with?("image/")
+      "image"
     end
   end
 

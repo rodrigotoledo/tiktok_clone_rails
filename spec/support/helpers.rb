@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "shoulda/matchers"
 require "rspec/json_expectations"
 

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   draw(:hotwire_native)
   resources :posts do
-    resources :comments, only: [:create]
+    resources :comments, only: [ :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  get 'sign_up', to: 'registrations#new', as: :sign_up
-  post 'sign_up', to: 'registrations#create'
-  root 'home#index'
+  get "sign_up", to: "registrations#new", as: :sign_up
+  post "sign_up", to: "registrations#create"
+  root "home#index"
 end
