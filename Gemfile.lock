@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rodrigotoledo/factory_bot_rails.git
-  revision: 78075a63f676ebf758093d7045a1cb3a7cddaa3b
+  revision: 5ebdc02acb2f1838f474f84fc4c6ef54a50689e4
   branch: fix-authentication-generator
   specs:
     factory_bot_rails (6.5.0)
@@ -121,7 +121,7 @@ GEM
     erubi (1.13.1)
     et-orbi (1.3.0)
       tzinfo
-    factory_bot (6.5.4)
+    factory_bot (6.5.5)
       activesupport (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
