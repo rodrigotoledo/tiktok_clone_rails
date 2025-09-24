@@ -77,8 +77,8 @@ gem "email_validator"
 
 gem "ransack", "~> 4.3"
 
-gem "tailwindcss-rails", "~> 3.3"
-gem "tailwindcss-ruby", "~> 3.4"
+gem "tailwindcss-rails", "~> 4.3"
+gem "tailwindcss-ruby", "~> 4.1"
 
 
 gem "hotwire_native_rails", "~> 0.4.4"
