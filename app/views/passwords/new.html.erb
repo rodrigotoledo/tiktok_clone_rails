@@ -1,4 +1,4 @@
-<div class="max-w-md mx-auto mt-10 bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
+<div class="min-w-1/3 max-w-md mx-auto bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
   <h1 class="text-3xl font-bold text-center text-white mb-6">Forgot your password?</h1>
   <% if flash[:alert] %>
     <div class="mb-4 text-red-400"><%= flash[:alert] %></div>
@@ -12,4 +12,11 @@
       <%= form.submit "Email reset instructions", class: "w-full py-2 rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition" %>
     </div>
   <% end %>
+
+  <div class="mt-4 text-center flex space-x-4">
+    <%= link_to "Sign In", new_session_path,
+          class: "text-fuchsia-400 hover:underline" %>
+    <%= link_to "Sign Up", sign_up_path,
+          class: "text-fuchsia-400 hover:underline" %>
+  </div>
 </div>

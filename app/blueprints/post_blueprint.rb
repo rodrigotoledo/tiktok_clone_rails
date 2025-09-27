@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostBlueprint < Blueprinter::Base
   identifier :id
 
@@ -7,7 +9,7 @@ class PostBlueprint < Blueprinter::Base
 
   field :media_file do |post, _options|
     if post.media_file.attached?
-      Rails.application.routes.url_helpers.rails_blob_url(post.media_file, host: 'localhost:3000')
+      Rails.application.routes.url_helpers.rails_blob_url(post.media_file, host: "localhost:3000")
     end
   end
 

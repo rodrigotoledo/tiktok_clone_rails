@@ -1,4 +1,4 @@
-<div class="max-w-md mx-auto mt-10 bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
+<div class="min-w-1/3 max-w-md mx-auto bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
   <h1 class="text-3xl font-bold text-center text-white mb-6">Sign In</h1>
 
   <% if flash[:alert] %>
@@ -37,7 +37,9 @@
     </div>
   <% end %>
 
-  <div class="mt-4 text-center">
+  <div class="mt-4 text-center flex justify-between">
+    <%= link_to "Sign Up", sign_up_path,
+          class: "text-fuchsia-400 hover:underline" %>
     <%= link_to "Forgot password?", new_password_path,
           class: "text-fuchsia-400 hover:underline" %>
   </div>
