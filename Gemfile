@@ -85,4 +85,4 @@ gem "browser", "~> 6.2"
 gem "rack-cors"
 gem "faker"
 gem "jwt"
-gem 'blueprinter'
+gem "blueprinter"

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Api::RegistrationsController < Api::ApplicationController
-
   def create
     @user = User.new(params.permit(:email_address, :password, :password_confirmation))
     if @user.save!

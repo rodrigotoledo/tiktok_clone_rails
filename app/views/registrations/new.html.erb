@@ -1,10 +1,12 @@
-<div class="max-w-md mx-auto mt-10 bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
+<div class="min-w-1/3 max-w-md mx-auto bg-gray-900 rounded-xl shadow-lg p-8 border border-fuchsia-700">
   <h1 class="text-3xl font-bold text-center text-white mb-6">Sign Up</h1>
 
   <%= form_with model: @user, url: sign_up_path, local: true do |form| %>
     <div class="mb-4">
       <%= form.label :email_address, class: "block text-white mb-2" %>
       <%= form.email_field :email_address,
+            placeholder: "Enter your email address",
+            autofocus: true,
             class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white
                     focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
     </div>
@@ -12,6 +14,7 @@
     <div class="mb-4">
       <%= form.label :password, class: "block text-white mb-2" %>
       <%= form.password_field :password,
+            placeholder: "Enter your password",
             class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white
                     focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
     </div>
@@ -19,6 +22,7 @@
     <div class="mb-6">
       <%= form.label :password_confirmation, class: "block text-white mb-2" %>
       <%= form.password_field :password_confirmation,
+            placeholder: "Fll with your password again",
             class: "w-full px-4 py-2 rounded-full bg-gray-800 text-white
                     focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
     </div>
@@ -37,4 +41,11 @@
       <% end %>
     </ul>
   <% end %>
+
+  <div class="mt-4 text-center flex justify-between">
+    <%= link_to "Sign In", new_session_path,
+          class: "text-fuchsia-400 hover:underline" %>
+    <%= link_to "Forgot password?", new_password_path,
+          class: "text-fuchsia-400 hover:underline" %>
+  </div>
 </div>
