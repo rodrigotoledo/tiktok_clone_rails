@@ -45,7 +45,6 @@ gem "image_processing", "~> 1.2"
 group :development, :test do
   gem "factory_bot_rails", git: "https://github.com/rodrigotoledo/factory_bot_rails.git", branch: "fix-authentication-generator"
   gem "dotenv-rails"
-  gem "faker"
   gem "guard-rspec", require: false
   gem "letter_opener"
   gem "pry"
@@ -83,3 +82,7 @@ gem "tailwindcss-ruby", "~> 4.1"
 
 gem "hotwire_native_rails", "~> 0.4.4"
 gem "browser", "~> 6.2"
+gem "rack-cors"
+gem "faker"
+gem "jwt"
+gem 'blueprinter'

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  draw(:hotwire_native)
   resource :session
   resources :passwords, param: :token
-  draw(:hotwire_native)
   resources :posts do
     resources :comments, only: [ :create ]
   end
@@ -21,4 +21,13 @@ Rails.application.routes.draw do
   get "sign_up", to: "registrations#new", as: :sign_up
   post "sign_up", to: "registrations#create"
   root "home#index"
+
+  namespace :api do
+    resource :session, only: [ :create, :destroy ]
+    resources :passwords, only: [ :create, :update ], param: :token
+    resources :posts do
+      resources :comments, only: [ :index, :create ]
+    end
+    resource :registration, only: [ :create ]
+  end
 end
