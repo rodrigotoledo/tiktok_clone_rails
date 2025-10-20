@@ -40,5 +40,8 @@ module TiktokRailsApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.hosts << "localhost:5173"
+    config.hosts << "127.0.0.1:5173"
   end
 end
