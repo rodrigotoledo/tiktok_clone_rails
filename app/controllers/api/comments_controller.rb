@@ -5,7 +5,8 @@ class Api::CommentsController < Api::ApplicationController
   before_action :set_post
 
   def index
-    render json: @post.comments.includes(:user), include: :user
+    comments = @post.comments.order(created_at: :desc).includes(:user)
+    render json: { comments: CommentBlueprint.render_as_json(comments) }
   end
 
   def create
