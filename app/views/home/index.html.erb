@@ -26,13 +26,11 @@
 
         <div class="bg-gray-800 px-6 py-4 rounded-b-3xl">
           <h3 class="text-lg font-bold text-fuchsia-400 mb-2">Comments</h3>
-          <div class="max-h-40 overflow-y-auto  mb-2 scrollbar-thin">
-            <%= turbo_stream_from post, "comments" %>
-            <div id="comments" class='space-y-2'>
-              <% post.comments.order(created_at: :desc).each do |comment| %>
-                <%=render partial: 'comments/comment', locals: {comment: comment} %>
-              <% end %>
-            </div>
+          <%= turbo_stream_from post, "comments" %>
+          <div id="comments" class='max-h-40 overflow-y-auto mb-2 scrollbar-thin space-y-2'>
+            <% post.comments.order(created_at: :desc).each do |comment| %>
+              <%=render partial: 'comments/comment', locals: {comment: comment} %>
+            <% end %>
           </div>
           <%= form_with model:[post,Comment.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
             <div class="flex items-center">

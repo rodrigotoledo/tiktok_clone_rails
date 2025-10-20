@@ -8,6 +8,6 @@ class Api::PostsController < Api::ApplicationController
       .order(created_at: :desc)
       .includes(:user)
 
-    render json: PostBlueprint.render(posts)
+    render json: { posts: PostBlueprint.render_as_json(posts) }
   end
 end
