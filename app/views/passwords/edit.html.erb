@@ -1,26 +1,28 @@
-<div class="w-full max-w-md mx-auto bg-gray-900 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border border-fuchsia-700">
-  <h1 class="text-2xl sm:text-3xl font-bold text-center text-white mb-4 sm:mb-6">Update Your Password</h1>
-  <% if flash[:alert] %>
-    <div class="mb-3 sm:mb-4 text-sm sm:text-base text-red-400"><%= flash[:alert] %></div>
-  <% end %>
-  <%= form_with url: password_path(params[:token]), method: :put do |form| %>
-    <div class="mb-3 sm:mb-4">
-      <%= form.label :password, class: "block text-white mb-2 text-sm sm:text-base" %>
-      <%= form.password_field :password, required: true, autocomplete: "new-password", placeholder: "Enter new password", maxlength: 72, class: "w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
-    </div>
-    <div class="mb-3 sm:mb-4">
-      <%= form.label :password_confirmation, class: "block text-white mb-2 text-sm sm:text-base" %>
-      <%= form.password_field :password_confirmation, required: true, placeholder: "Confirm new password", maxlength: 72, class: "w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
-    </div>
-    <div>
-      <%= form.submit "Update Password", class: "w-full py-2 text-sm sm:text-base rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition" %>
-    </div>
-  <% end %>
+<div class="min-h-screen flex items-center justify-center px-4 py-20">
+  <div class="w-full max-w-md bg-gray-900 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border border-fuchsia-700">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center text-white mb-4 sm:mb-6">Update Your Password</h1>
+    <% if flash[:alert] %>
+      <div class="mb-3 sm:mb-4 text-sm sm:text-base text-red-400"><%= flash[:alert] %></div>
+    <% end %>
+    <%= form_with url: password_path(params[:token]), method: :put do |form| %>
+      <div class="mb-3 sm:mb-4">
+        <%= form.label :password, class: "block text-white mb-2 text-sm sm:text-base" %>
+        <%= form.password_field :password, required: true, autocomplete: "new-password", placeholder: "Enter new password", maxlength: 72, class: "w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+      </div>
+      <div class="mb-3 sm:mb-4">
+        <%= form.label :password_confirmation, class: "block text-white mb-2 text-sm sm:text-base" %>
+        <%= form.password_field :password_confirmation, required: true, placeholder: "Confirm new password", maxlength: 72, class: "w-full px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
+      </div>
+      <div>
+        <%= form.submit "Update Password", class: "w-full py-2 text-sm sm:text-base rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition" %>
+      </div>
+    <% end %>
 
-  <div class="mt-3 sm:mt-4 text-center flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 text-sm sm:text-base">
-    <%= link_to "Sign In", new_session_path,
-          class: "text-fuchsia-400 hover:underline" %>
-    <%= link_to "Sign Up", sign_up_path,
-          class: "text-fuchsia-400 hover:underline" %>
+    <div class="mt-3 sm:mt-4 text-center flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 text-sm sm:text-base">
+      <%= link_to "Sign In", new_session_path,
+            class: "text-fuchsia-400 hover:underline" %>
+      <%= link_to "Sign Up", sign_up_path,
+            class: "text-fuchsia-400 hover:underline" %>
+    </div>
   </div>
 </div>
