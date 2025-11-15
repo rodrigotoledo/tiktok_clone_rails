@@ -1,4 +1,5 @@
-<audio controls>
-  <source src="<%= url_for(post.media_file) %>" type="<%= post.media_file.content_type %>">
-</audio>
-
+<div class="audio-post w-full">
+  <audio controls class="w-full max-w-full">
+    <source src="<%= url_for(post.media_file) %>" type="<%= post.media_file.content_type %>">
+  </audio>
+</div>

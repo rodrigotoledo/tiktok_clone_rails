@@ -1,5 +1,5 @@
-<div class="video-post">
-  <video controls class="w-100">
+<div class="video-post w-full">
+  <video controls class="w-full max-w-full h-auto rounded-lg">
     <source src="<%= url_for(post.media_file) %>" type="<%= post.media_file.content_type %>">
     Your browser does not support the video element.
   </video>

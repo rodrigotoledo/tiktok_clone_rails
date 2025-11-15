@@ -23,28 +23,28 @@
   </head>
 
   <body class="min-h-screen bg-black text-white flex flex-col <%= "hotwire-native" if turbo_native_app? %>">
-    <div class="fixed z-100 w-full">
-      <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-r from-black via-fuchsia-700 to-red-600">
+    <div class="fixed z-50 w-full top-0 left-0">
+      <header class="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-4 bg-gradient-to-r from-black via-fuchsia-700 to-red-600">
         <div class="flex items-center space-x-2">
-          <span class="text-2xl font-bold text-white">TikTokClone</span>
+          <span class="text-lg sm:text-xl md:text-2xl font-bold text-white">TikTokClone</span>
         </div>
         <% if authenticated? %>
-        <nav class="flex items-center space-x-4">
+        <nav class="flex items-center space-x-2 sm:space-x-4">
           <%= link_to 'Feeds', root_path,
-                class: 'px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700' %>
+                class: 'px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded bg-red-600 text-white hover:bg-red-700 whitespace-nowrap' %>
           <%= button_to "Sign Out", session_path, method: :delete,
-                class: 'px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700' %>
+                class: 'px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded bg-red-600 text-white hover:bg-red-700 whitespace-nowrap' %>
         </nav>
         <% end %>
       </header>
     </div>
 
-    <main class="flex-1 container mx-auto px-4 py-8 flex items-center justify-center">
+    <main class="flex-1 w-full">
       <%= yield %>
     </main>
 
-    <footer class="fixed bottom-0 left-0 w-full bg-gray-900 py-3 shadow-lg flex justify-center items-center">
-      <span>&copy; <%=Date.today.year%> TikTok Clone. All rights reserved.</span>
+    <footer class="fixed bottom-0 left-0 w-full bg-gray-900 py-2 sm:py-3 shadow-lg flex justify-center items-center">
+      <span class="text-xs sm:text-sm text-center px-2">&copy; <%=Date.today.year%> TikTok Clone. All rights reserved.</span>
     </footer>
 
   </body>
