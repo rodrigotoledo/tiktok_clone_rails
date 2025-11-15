@@ -7,6 +7,6 @@ class Comment < ApplicationRecord
   after_create :broadcast_comment
 
   def broadcast_comment
-    broadcast_prepend_to [ post, "comments" ], target: "comments", partial: "comments/comment", locals: { comment: self }
+    broadcast_prepend_to [ post, "comments" ], target: "#{post.id}_comments", partial: "comments/comment", locals: { comment: self }
   end
 end
