@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-
-echo ">> Running RuboCop..."
-bundle exec rubocop -A || true
+echo ">> Running RuboCop auto-fix on all files..."
+bundle exec rubocop -A --fail-level A || echo "Some offenses could not be auto-fixed; review and fix manually."
 
 echo ">> Running Brakeman..."
 bundle exec brakeman --no-pager --quiet || true
