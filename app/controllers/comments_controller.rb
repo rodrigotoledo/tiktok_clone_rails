@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = Current.session&.user
     if @comment.save
-      render json: {}, status: :no_content
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to root_path }
+      end
     else
       redirect_to root_path, alert: "Could not add comment."
     end

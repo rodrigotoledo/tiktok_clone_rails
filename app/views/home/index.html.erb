@@ -32,10 +32,14 @@
               <%=render partial: 'comments/comment', locals: {comment: comment} %>
             <% end %>
           </div>
-          <%= form_with model:[post,Comment.new], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
+          <%= form_with model:[post,Comment.new], data: { turbo: true, controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
             <div class="flex items-center gap-2">
-              <%= form.text_field :body, placeholder: "Add a comment...", class: "flex-1 min-w-0 px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700" %>
-              <%= form.submit "Comment", class: "px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition whitespace-nowrap" %>
+              <%= form.text_field :body, placeholder: "Add a comment...", class: "flex-1 min-w-0 px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-700",
+              data: {
+                controller: "reset-form",
+                action: "turbo:submit-end->reset-form#reset"
+              } %>
+              <%= form.submit "Comment", class: "px-3 sm:px-4 py-2 text-sm sm:text-base rounded-full bg-fuchsia-700 text-white font-bold hover:bg-fuchsia-800 transition whitespace-nowrap", data: { action: "click->reset-form#submit" } %>
             </div>
           <% end %>
         </div>
