@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :account do
-    user { nil }
-    info { "" }
+    association :user
+    info { Faker::Lorem.sentence }
   end
 end
