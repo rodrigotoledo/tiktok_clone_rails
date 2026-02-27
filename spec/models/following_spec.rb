@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Following, type: :model do
-
   describe 'creation' do
     it 'is valid with a user' do
       following = build(:following)
