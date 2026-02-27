@@ -5,14 +5,16 @@ Just a TikTok clone using Rails, broadcasting, and comments with real-time.
 ## Stack
 
 - **Ruby on Rails 8**
-- **Turbo Streams** + **Solid Cable** (Action Cable over Solid)
+- **Turbo Streams** + **Redis** (for Action Cable and caching)
+- **Sidekiq** (for background jobs)
 - **Tailwind CSS** (`tailwindcss-rails` gem; no Node required)
 - **SQLite3** (development & test)
 
 ## Features
 
 - Infinite-style feed for posts (Photo/Video)
-- Real-time comments via Turbo Streams over **Solid Cable**
+- Real-time comments via Turbo Streams over **Redis**
+- Background job processing with **Sidekiq**
 - Hotwire-friendly partials for fast UI updates
 - Minimal setup using **SQLite3** and **Tailwind** pipeline
 
